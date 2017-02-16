@@ -2,7 +2,6 @@ package com.yu.service;
 
 import org.junit.Test;  
 import org.springframework.beans.factory.annotation.Autowired;  
-import com.yu.baseTest.SpringTestCase;
 import com.yu.domain.User;
 import com.yu.service.UserService;
 
