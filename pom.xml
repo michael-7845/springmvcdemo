@@ -259,7 +259,7 @@
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-surefire-plugin</artifactId>
-              <version>2.19.1</version>
+              <version>2.17</version>
               <configuration>
                 <suiteXmlFiles>
                   <suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>
@@ -275,8 +275,8 @@
                   </property>
                 </properties>
                 <skipTests>false</skipTests>
-                <!--  <workingDirectory>target/</workingDirectory>   -->
-                <testSourceDirectory>src/test/java</testSourceDirectory>
+                <!-- <workingDirectory>target/</workingDirectory> -->
+                <!-- <testSourceDirectory>src/test/java</testSourceDirectory> -->
                 <forkMode>always</forkMode>
               </configuration>
             </plugin> 
