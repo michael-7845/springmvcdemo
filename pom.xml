@@ -220,10 +220,6 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-            <resource>
-                <directory>src/test/java</directory>
-                <filtering>true</filtering>
-            </resource>
         </resources>
         <plugins>
             <plugin>  
@@ -280,6 +276,7 @@
                 </properties>
                 <skipTests>false</skipTests>
                 <!--  <workingDirectory>target/</workingDirectory>   -->
+                <testSourceDirectory>src/test/java</testSourceDirectory>
                 <forkMode>always</forkMode>
               </configuration>
             </plugin> 
