@@ -2,10 +2,11 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="com.yu.testng.TestDemo"/>
+      <class name="com.yu.testng.UserServiceTestNG"/>
     </classes>
   </test> <!-- Test -->
   <!-- 
+  <class name="com.yu.testng.TestDemo"/>
   -->
   
   <listeners>
