@@ -17,6 +17,7 @@
         <junit.version>4.10</junit.version>
         <!-- testng -->
         <testng.version>6.9.9</testng.version>
+        <xmlFileName>testng-ut.xml</xmlFileName>
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.1</mybatis.version>
   </properties>
@@ -229,22 +230,6 @@
                    <encoding>UTF-8</encoding>  
                 </configuration>  
             </plugin>
-            <!-- war插件   
-            <plugin>  
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1</version>
-                <configuration>
-                    <warName>${project.artifactId}</warName>
-                    <warSourceExcludes>
-                        ${exclude_file}
-                    </warSourceExcludes>
-                    <packagingExcludes>
-                        WEB-INF/lib/geronimo-javamail_1.4_spec.jar
-                    </packagingExcludes>
-                </configuration>
-            </plugin>
-            -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
@@ -262,7 +247,7 @@
               <version>2.17</version>
               <configuration>
                 <suiteXmlFiles>
-                  <suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>
+                  <suiteXmlFile>src/main/resources/testng/${xmlFileName}</suiteXmlFile>
                 </suiteXmlFiles>
                 <properties>
                   <property>
@@ -275,12 +260,11 @@
                   </property>
                 </properties>
                 <skipTests>false</skipTests>
-                <!-- <workingDirectory>target/</workingDirectory> -->
-                <!-- <testSourceDirectory>src/test/java</testSourceDirectory> -->
+                <!-- <workingDirectory>target/</workingDirectory>
+                <testSourceDirectory>src/test/java</testSourceDirectory> -->
                 <forkMode>always</forkMode>
               </configuration>
             </plugin> 
-             
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
@@ -293,6 +277,22 @@
                     <server>tomcat7</server>
                 </configuration>                
             </plugin>
+            <!-- war插件   
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <warName>${project.artifactId}</warName>
+                    <warSourceExcludes>
+                        ${exclude_file}
+                    </warSourceExcludes>
+                    <packagingExcludes>
+                        WEB-INF/lib/geronimo-javamail_1.4_spec.jar
+                    </packagingExcludes>
+                </configuration>
+            </plugin>
+            -->
             <!-- 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
