@@ -2,13 +2,12 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="com.yu.testng.TestDemo"/>
+      <class name="com.yu.testng.SpringTestNG"/>
     </classes>
   </test> <!-- Test -->
-  <!-- 
-      <class name="com.yu.testng.UserServiceTestNG"/>
-      <class name="com.yu.testng.TestDemo"/>
-      <class name="com.yu.testng.SpringTestNG"/>
+  <!--
+  <class name="com.yu.testng.TestDemo"/> 
+  <class name="com.yu.testng.UserServiceTestNG"/>
   -->
   
   <listeners>

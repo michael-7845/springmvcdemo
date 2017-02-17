@@ -17,7 +17,8 @@
         <junit.version>4.10</junit.version>
         <!-- testng -->
         <testng.version>6.9.9</testng.version>
-        <xmlFileName>testng-ut.xml</xmlFileName>
+        <!-- testng xml file: testng-it.xml -->
+        <xmlFileName></xmlFileName> 
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.1</mybatis.version>
   </properties>
@@ -78,8 +79,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-         -->
-        
+        -->
         <!-- testng -->
         <dependency>
           <groupId>org.testng</groupId>
