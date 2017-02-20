@@ -18,7 +18,7 @@
         <!-- testng -->
         <testng.version>6.9.9</testng.version>
         <!-- testng xml file: testng-it.xml -->
-        <xmlFileName></xmlFileName> 
+        <xmlFileName>testng-it.xml</xmlFileName> 
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.1</mybatis.version>
   </properties>
