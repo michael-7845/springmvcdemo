@@ -10,7 +10,7 @@ public class TestDemo{
 	public void init(){
 		s="Hallo Welt!";
 	}
-	@Test
+	@Test(enabled=false)
 	public void testSayHello(){
 		Assert.assertEquals(s,"Hallo Welt!");
 	}

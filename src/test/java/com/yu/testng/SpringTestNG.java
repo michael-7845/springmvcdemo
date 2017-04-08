@@ -22,12 +22,12 @@ public class SpringTestNG extends AbstractTestNGSpringContextTests {
         System.out.println("setup()");  
     }  
       
-    @Test  
+    @Test(enabled=false)
     public void testOk() {    
         Assert.assertTrue(1 == 1);
     }  
     
-	@Test  
+	@Test(enabled=false)
     public void selectUserByIdTest(){  
 		User user = userService.selectUserById(1);  
 		System.out.println(user.getUserName() + ":" + user.getUserPassword());
