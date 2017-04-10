@@ -1,42 +1,44 @@
 package com.yu.testng;
 
+import com.yu.controller.JsonController;
 import com.yu.controller.UserController;
 import com.yu.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
+
 /**
  * Created by Administrator on 2017/4/10.
  */
-public class UserControllerTest {
+public class JsonControllerTest {
     private MockMvc mockMvc;
     @BeforeClass
     public void setUp() {
-        UserController userController = new UserController();
-        ApplicationContext ctx =new ClassPathXmlApplicationContext("application.xml");
-        userController.setUserService((UserService) ctx.getBean("userServiceImpl"));
-
-        System.out.println("set up: " + userController);
-        mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+        JsonController jsonController = new JsonController();
+        System.out.println("set up: " + jsonController);
+        mockMvc = MockMvcBuilders.standaloneSetup(jsonController).build();
     }
 
     @Test
     protected void testUserController() throws Exception {
 //        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 
-        ResultActions result = this.mockMvc.perform(get("/"));
+        ResultActions result = this.mockMvc.perform(get("/json?username=ykm&password=123"));
         System.out.println("user controller result: " + result);
-        result.andExpect(view().name("index"));
+        result.andExpect(jsonPath("$.userName").value("ykm"))
+                .andExpect(jsonPath("$.userPassword").value("123"))
+                .andExpect(jsonPath("$.userId").exists())
+                .andDo(print());
+//        result.andExpect(model().attributeExists("user"));
     }
 
 }

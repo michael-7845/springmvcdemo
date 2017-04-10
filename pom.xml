@@ -134,10 +134,26 @@
             <version>1.9.5</version>
             <scope>test</scope>
         </dependency>
+        <!-- other dependencies -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- hibernate any version greater than 4.1.0.Final: Add hibernate-validator dependency which has implementation of JSR 303 (bean validation)-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- json any version smaller than 1.1.0.Final: Major API change, causes: java.lang.NoSuchMethodError: com.jayway.jsonpath.JsonPath.compile-->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>0.9.1</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- 依赖Guice -->

@@ -9,9 +9,12 @@ import com.yu.domain.User;
 import com.yu.service.UserService;
 
 @Controller  
-public class UserController {  
+public class UserController {
 
-    @Resource  
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+    @Resource
     private UserService userService; 
 
     @RequestMapping("/")    
