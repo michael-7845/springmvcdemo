@@ -11,6 +11,9 @@ import org.testng.annotations.Test;
 import com.yu.domain.User;
 import com.yu.service.UserService;  
 
+/**
+ * Spring TestNG测试脚手架
+ */
 @ContextConfiguration(locations = { "classpath*:/application.xml" })  
 public class SpringTestNG extends AbstractTestNGSpringContextTests {     
       
@@ -20,17 +23,12 @@ public class SpringTestNG extends AbstractTestNGSpringContextTests {
     @BeforeClass  
     public void setUp(){  
         System.out.println("setup()");  
-    }  
-      
-    @Test(enabled=false)
-    public void testOk() {    
-        Assert.assertTrue(1 == 1);
-    }  
+    }
     
-	@Test(enabled=false)
+	@Test(enabled=true)
     public void selectUserByIdTest(){  
 		User user = userService.selectUserById(1);  
-		System.out.println(user.getUserName() + ":" + user.getUserPassword());
+//		System.out.println(user.getUserName() + ":" + user.getUserPassword());
 		Assert.assertEquals("luoguohui", user.getUserName());
 	} 
       

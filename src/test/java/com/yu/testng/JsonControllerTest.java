@@ -38,7 +38,6 @@ public class JsonControllerTest {
                 .andExpect(jsonPath("$.userPassword").value("123"))
                 .andExpect(jsonPath("$.userId").exists())
                 .andDo(print());
-//        result.andExpect(model().attributeExists("user"));
     }
 
 }

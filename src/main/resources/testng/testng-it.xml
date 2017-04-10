@@ -6,9 +6,10 @@
       <class name="com.yu.testng.SpringTestNG"/>
       <class name="com.yu.testng.UserControllerTestWithWebConfig"/>
       <class name="com.yu.testng.UserControllerTest"/>
+      <class name="com.yu.testng.JsonControllerTestWithWebConfig"/>
       <class name="com.yu.testng.JsonControllerTest"/>
       -->
-      <class name="com.yu.testng.UserControllerTestWithWebConfig"/>
+      <class name="com.yu.service.UserServiceTest"/>
     </classes>
   </test> <!-- Test -->
   <!--

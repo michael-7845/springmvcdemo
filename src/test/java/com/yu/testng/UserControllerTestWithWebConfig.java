@@ -20,14 +20,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 /**
- * Created by Administrator on 2017/4/8.
+ * Web配置方式执行测试的脚手架
  */
-@ContextConfiguration(locations = { "classpath*:/application.xml", "classpath*:springmvc/spring-mvc.xml" })
 @WebAppConfiguration(value="src/main/java")
-//@ContextHierarchy({
-//        @ContextConfiguration(name="parent", locations = "classpath*:application.xml"),
-//        @ContextConfiguration(name="child", locations = "classpath*:springmvc/spring-mvc.xml")
-//})
+@ContextHierarchy({
+        @ContextConfiguration(name="parent", locations = "classpath*:application.xml"),
+        @ContextConfiguration(name="child", locations = "classpath*:springmvc/spring-mvc.xml")
+})
 public class UserControllerTestWithWebConfig extends AbstractTestNGSpringContextTests {
     @Autowired
     private WebApplicationContext wac;
@@ -40,21 +39,29 @@ public class UserControllerTestWithWebConfig extends AbstractTestNGSpringContext
 
     @Test
     protected void testUserController() throws Exception {
-//        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
         ResultActions result = this.mockMvc.perform(MockMvcRequestBuilders.get("/"));
         System.out.println("user controller result: " + result);
         result.andExpect(MockMvcResultMatchers.view().name("index"))
                 .andDo(MockMvcResultHandlers.print()) ;
     }
 
-    @Test(enabled=true)
-    protected void testJsonController() throws Exception {
-//        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-        this.mockMvc.perform(MockMvcRequestBuilders.get("/json?username=ykm&password=123"))
-                .andExpect(jsonPath("$.userName").value("ykm"))
-                .andExpect(jsonPath("$.userPassword").value("123"))
-                .andExpect(jsonPath("$.userId").exists())
-                .andDo(print());
-    }
+//    @Test(enabled=true)
+//    protected void testJsonController() throws Exception {
+//        this.mockMvc.perform(MockMvcRequestBuilders.get("/json?username=ykm&password=123"))
+//                .andExpect(jsonPath("$.userName").value("ykm"))
+//                .andExpect(jsonPath("$.userPassword").value("123"))
+//                .andExpect(jsonPath("$.userId").exists())
+//                .andDo(print());
+//    }
+//
+//    @Test(enabled=true)
+//    protected void testJsonController_params() throws Exception {
+//        this.mockMvc.perform(MockMvcRequestBuilders.get("/json")
+//                .param("username", "ykm").param("password", "123"))
+//                .andExpect(jsonPath("$.userName").value("ykm"))
+//                .andExpect(jsonPath("$.userPassword").value("123"))
+//                .andExpect(jsonPath("$.userId").exists())
+//                .andDo(print());
+//    }
 
 }
