@@ -17,21 +17,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 
 /**
- * Created by Administrator on 2017/4/10.
+ * @ResponseBody 测试范例 (独立方式执行)
  */
 public class JsonControllerTest {
     private MockMvc mockMvc;
     @BeforeClass
     public void setUp() {
         JsonController jsonController = new JsonController();
-        System.out.println("set up: " + jsonController);
         mockMvc = MockMvcBuilders.standaloneSetup(jsonController).build();
     }
 
     @Test
     protected void testUserController() throws Exception {
-//        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-
         ResultActions result = this.mockMvc.perform(get("/json?username=ykm&password=123"));
         System.out.println("user controller result: " + result);
         result.andExpect(jsonPath("$.userName").value("ykm"))

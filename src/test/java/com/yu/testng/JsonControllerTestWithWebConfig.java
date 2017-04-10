@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 /**
- * Web配置方式执行测试的脚手架
+ * @ResponseBody范例 (Web配置方式执行)
  */
 @ContextConfiguration(locations = { "classpath*:/application.xml", "classpath*:springmvc/spring-mvc.xml" })
 @WebAppConfiguration(value="src/main/java")

@@ -9,6 +9,7 @@ import com.yu.domain.User;
 /**
  * Service的测试样例
  */
+
 //public class UserServiceTest extends SpringJUnit4TestCase {
 public class UserServiceTest extends SpringTestNGTestCase {
 
